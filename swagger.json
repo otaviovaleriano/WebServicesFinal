@@ -5,10 +5,10 @@
     "description": "Web Services API",
     "version": "1.0.0"
   },
-  "host": "webservices2.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {
@@ -21,7 +21,7 @@
         }
       }
     },
-    "/cars/": {
+    "/books/": {
       "get": {
         "description": "",
         "produces": [
@@ -42,25 +42,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "title": {
                   "example": "any"
                 },
-                "model": {
+                "author_id": {
                   "example": "any"
                 },
-                "year": {
+                "genre": {
                   "example": "any"
                 },
-                "color": {
+                "published_year": {
                   "example": "any"
                 },
-                "fuelType": {
+                "publisher": {
                   "example": "any"
                 },
-                "mileage": {
+                "pages": {
                   "example": "any"
                 },
-                "features": {
+                "isbn": {
                   "example": "any"
                 }
               }
@@ -80,7 +80,7 @@
         }
       }
     },
-    "/cars/{id}": {
+    "/books/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -118,25 +118,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "title": {
                   "example": "any"
                 },
-                "model": {
+                "author_id": {
                   "example": "any"
                 },
-                "year": {
+                "genre": {
                   "example": "any"
                 },
-                "color": {
+                "published_year": {
                   "example": "any"
                 },
-                "fuelType": {
+                "publisher": {
                   "example": "any"
                 },
-                "mileage": {
+                "pages": {
                   "example": "any"
                 },
-                "features": {
+                "isbn": {
                   "example": "any"
                 }
               }
@@ -177,6 +177,19 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/authors/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

@@ -5,8 +5,10 @@ const router = express.Router();
 // routes.get('/more', myController.returnAnotherPerson);
 
 router.use('/', require('./swagger'));
-router.use('/cars', require('./cars'));
-// routes.use('/contacts', require('./contacts'));
+router.use('/books', require('./books'));
+// router.use('/movies', require('./movies'));
+router.use('/authors', require('./authors'));
+// router.use('/categories', require('./categories'));
 
 
 
