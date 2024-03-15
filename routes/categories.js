@@ -5,10 +5,10 @@ const router = express.Router();
 const categoriesController = require('../controllers/categories');
 const validation = require('../middleware/validate');
 
-// router.get('/', categoriesController.getAllCategories);
-// router.get('/:id', categoriesController.getSingleCategories);
-// router.post('/', validation.saveCategories, categoriesController.createNewCategories);
-// router.put('/:id', validation.saveCategories, categoriesController.updateCategories);
-// router.delete('/:id', categoriesController.deleteCategories);
+router.get('/', categoriesController.getAllCategories);
+router.get('/:id', categoriesController.getSingleCategorie);
+router.post('/', validation.saveCategorie, categoriesController.createNewCategorie);
+router.put('/:id', validation.saveCategorie, categoriesController.updateCategorie);
+router.delete('/:id', categoriesController.deleteCategorie);
 
 module.exports = router;
