@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.use('/', require('./swagger'));
 router.use('/books', require('./books'));
-// router.use('/movies', require('./movies'));
+router.use('/movies', require('./movies'));
 router.use('/authors', require('./authors'));
-// router.use('/categories', require('./categories'));
+router.use('/categories', require('./categories'));
 
 
 
