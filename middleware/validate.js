@@ -23,6 +23,27 @@ const saveBook = (req, res, next) => {
     });
 };
 
+const saveAuthor = (req, res, next) => {
+    const validationRule = {
+        name: 'required|string',
+        birthdate: 'required|string',
+        nationality: 'required|string',
+    };
+    validator(req.body, validationRule, {}, (err, status) => {
+        if (!status) {
+            res.status(412).send({
+                success: false,
+                message: 'Validation failed',
+                data: err
+            });
+        } else {
+            next();
+        }
+    });
+};
+
+
 module.exports = {
-    saveBook
+    saveBook,
+    saveAuthor
 };

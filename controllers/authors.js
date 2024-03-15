@@ -12,122 +12,114 @@ const getAllAuthors = async (req, res, next) => {
   });
 };
 
-// // GET Specific Car
-// const getSingleCar = async (req, res, next) => {
-//   if (!ObjectId.isValid(req.params.id)) {
-//     res.status(400).json('Must use a valid carId to find a car.');
-//   }
-//   const carId = new ObjectId(req.params.id);
-//   const result = await mongodb
-//     .getDb()
-//     .db()
-//     .collection("authors")
-//     .find({ _id: carId });
-//   result.toArray().then((lists) => {
-//     res.setHeader("Content-Type", "application/json");
-//     res.status(200).json(lists[0]);
-//   });
-// };
+// GET Specific Author
+const getSingleAuthor = async (req, res, next) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid authorId to find a author.');
+  }
+  const authorId = new ObjectId(req.params.id);
+  const result = await mongodb
+    .getDb()
+    .db()
+    .collection("authors")
+    .find({ _id: authorId });
+  result.toArray().then((lists) => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists[0]);
+  });
+};
 
-// // POST new Car
-// const createNewCar = async (req, res) => {
-//   try {
-//     const car = {
-//         brand: req.body.brand,
-//         model: req.body.model,
-//         year: req.body.year,
-//         color: req.body.color,
-//         fuelType: req.body.fuelType,
-//         mileage: req.body.mileage,
-//         features: req.body.features || [] // features is an array; 
-//       };
+// POST new Author
+const createNewAuthor = async (req, res) => {
+  try {
+    const author = {
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        nationality: req.body.nationality,
+      };
 
-//     console.log("Received car data:", car);
+    console.log("Received author data:", author);
 
-//     // Assuming you have a MongoDB connection named 'mongodb'
-//     const response = await mongodb
-//       .getDb()
-//       .db()
-//       .collection("authors")
-//       .insertOne(car);
+    // Assuming you have a MongoDB connection named 'mongodb'
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection("authors")
+      .insertOne(author);
 
-//     console.log("MongoDB insertion response:", response);
+    console.log("MongoDB insertion response:", response);
 
-//     if (response.acknowledged) {
-//       res.status(201).json(response);
-//     } else {
-//       res
-//         .status(500)
-//         .json(
-//           response.error || "Create failed. Something went wrong..."
-//         );
-//     }
-//   } catch (error) {
-//     console.error("Error creating car:", error);
-//     res.status(500).json("Internal server error");
-//   }
-// };
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error || "Create failed. Something went wrong..."
+        );
+    }
+  } catch (error) {
+    console.error("Error creating author:", error);
+    res.status(500).json("Internal server error");
+  }
+};
 
-// // PUT new info on a specific car
-// const updateCar = async (req, res) => {
-//   if (!ObjectId.isValid(req.params.id)) {
-//     res.status(400).json('Must use a valid carId to update a car.');
-//   }
-//   const carId = new ObjectId(req.params.id);
-//   const car = {
-//         brand: req.body.brand,
-//         model: req.body.model,
-//         year: req.body.year,
-//         color: req.body.color,
-//         fuelType: req.body.fuelType,
-//         mileage: req.body.mileage,
-//         features: req.body.features || [] // features is an array; 
-//   };
-//   const response = await mongodb
-//     .getDb()
-//     .db()
-//     .collection("authors")
-//     .replaceOne({ _id: carId }, car);
-//   console.log(response);
-//   if (response.modifiedCount > 0) {
-//     res.status(204).send();
-//   } else {
-//     res
-//       .status(500)
-//       .json(
-//         response.error || "Update failed. Car not found or something went wrong..."
-//       );
-//   }
-// };
+// PUT new info on a specific author
+const updateAuthor = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid authorId to update a author.');
+  }
+  const authorId = new ObjectId(req.params.id);
+  const author = {
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        nationality: req.body.nationality,
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection("authors")
+    .replaceOne({ _id: authorId }, author);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res
+      .status(500)
+      .json(
+        response.error || "Update failed. Author not found or something went wrong..."
+      );
+  }
+};
 
 
-// // DELETE a specific car
-// const deleteCar = async (req, res) => {
-//   if (!ObjectId.isValid(req.params.id)) {
-//     res.status(400).json('Must use a valid carId to delete a car.');
-//   }
-//   const carId = new ObjectId(req.params.id);
-//   const response = await mongodb
-//     .getDb()
-//     .db()
-//     .collection("authors")
-//     .deleteOne({ _id: carId }, true);
-//   console.log(response);
-//   if (response.deletedCount > 0) {
-//     res.status(200).send();
-//   } else {
-//     res
-//       .status(500)
-//       .json(
-//         response.error || "Delete failed. Car not found or something went wrong..."
-//       );
-//   }
-// };
+// DELETE a specific author
+const deleteAuthor = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid authorId to delete a author.');
+  }
+  const authorId = new ObjectId(req.params.id);
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection("authors")
+    .deleteOne({ _id: authorId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(200).send();
+  } else {
+    res
+      .status(500)
+      .json(
+        response.error || "Delete failed. Author not found or something went wrong..."
+      );
+  }
+};
 
 module.exports = {
   getAllAuthors,
-//   getSingleCar,
-//   createNewCar,
-//   updateCar,
-//   deleteCar,
+  getSingleAuthor,
+  createNewAuthor,
+  updateAuthor,
+  deleteAuthor,
 };
