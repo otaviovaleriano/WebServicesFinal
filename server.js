@@ -33,6 +33,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
+
 app
   .use(bodyParser.json())
   .use((req, res, next) => {
@@ -42,15 +43,17 @@ app
   .use('/', require('./routes'));
 
 
-app.listen(8080, () => {
-    console.log(`server started on port ${port}`);
-});
+// app.listen(8080, () => {
+//     // console.log(`server started on port ${port}`);
+// });
 
 mongodb.initDb((err, mongodb) => {
     if (err) {
         console.log(err);
     } else {
-        //app.listen(port);
-        console.log(`Connected to DB and listening on ${port}`);
+        app.listen(port);
+        // console.log(`Connected to DB and listening on ${port}`);
     }
 });
+
+module.exports = app;

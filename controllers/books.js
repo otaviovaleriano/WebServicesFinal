@@ -24,7 +24,7 @@ const getSingleBook = async (req, res, next) => {
     .collection("books")
     .find({ _id: bookId });
   result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.status(200).json(lists[0]);
   });
 };
