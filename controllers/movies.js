@@ -76,7 +76,7 @@ const updateMovie = async (req, res) => {
   }
   const movieId = new ObjectId(req.params.id);
   const movie = {
-        brand: req.body.brand,
+        name: req.body.name,
         genre: req.body.genre,
         director: req.body.director,
         release_date: req.body.release_date,

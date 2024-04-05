@@ -281,7 +281,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "name": {
                   "example": "any"
                 },
                 "genre": {
