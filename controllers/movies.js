@@ -33,13 +33,14 @@ const getSingleMovie = async (req, res, next) => {
 const createNewMovie = async (req, res) => {
   try {
     const movie = {
-        brand: req.body.brand,
-        model: req.body.model,
-        year: req.body.year,
-        color: req.body.color,
-        fuelType: req.body.fuelType,
-        mileage: req.body.mileage,
-        features: req.body.features || [] // features is an array; 
+        name: req.body.name,
+        genre: req.body.genre,
+        director: req.body.director,
+        release_date: req.body.release_date,
+        duration_minutes: req.body.duration_minutes,
+        studio: req.body.studio,
+        description: req.body.description,
+        film_rating: req.body.film_rating
       };
 
     console.log("Received movie data:", movie);
@@ -76,12 +77,13 @@ const updateMovie = async (req, res) => {
   const movieId = new ObjectId(req.params.id);
   const movie = {
         brand: req.body.brand,
-        model: req.body.model,
-        year: req.body.year,
-        color: req.body.color,
-        fuelType: req.body.fuelType,
-        mileage: req.body.mileage,
-        features: req.body.features || [] // features is an array; 
+        genre: req.body.genre,
+        director: req.body.director,
+        release_date: req.body.release_date,
+        duration_minutes: req.body.duration_minutes,
+        studio: req.body.studio,
+        description: req.body.description,
+        film_rating: req.body.film_rating
   };
   const response = await mongodb
     .getDb()

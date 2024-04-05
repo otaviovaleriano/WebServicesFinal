@@ -33,13 +33,8 @@ const getSingleCategorie = async (req, res, next) => {
 const createNewCategorie = async (req, res) => {
   try {
     const categories = {
-        brand: req.body.brand,
-        model: req.body.model,
-        year: req.body.year,
-        color: req.body.color,
-        fuelType: req.body.fuelType,
-        mileage: req.body.mileage,
-        features: req.body.features || [] // features is an array; 
+        name: req.body.name,
+        description: req.body.description,
       };
 
     console.log("Received categories data:", categories);
@@ -75,13 +70,8 @@ const updateCategorie = async (req, res) => {
   }
   const categoriesId = new ObjectId(req.params.id);
   const categories = {
-        brand: req.body.brand,
-        model: req.body.model,
-        year: req.body.year,
-        color: req.body.color,
-        fuelType: req.body.fuelType,
-        mileage: req.body.mileage,
-        features: req.body.features || [] // features is an array; 
+        name: req.body.name,
+        description: req.body.description,
   };
   const response = await mongodb
     .getDb()
