@@ -202,25 +202,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "name": {
                   "example": "any"
                 },
-                "model": {
+                "genre": {
                   "example": "any"
                 },
-                "year": {
+                "director": {
                   "example": "any"
                 },
-                "color": {
+                "release_date": {
                   "example": "any"
                 },
-                "fuelType": {
+                "duration_minutes": {
                   "example": "any"
                 },
-                "mileage": {
+                "studio": {
                   "example": "any"
                 },
-                "features": {
+                "description": {
+                  "example": "any"
+                },
+                "film_rating": {
                   "example": "any"
                 }
               }
@@ -281,22 +284,25 @@
                 "brand": {
                   "example": "any"
                 },
-                "model": {
+                "genre": {
                   "example": "any"
                 },
-                "year": {
+                "director": {
                   "example": "any"
                 },
-                "color": {
+                "release_date": {
                   "example": "any"
                 },
-                "fuelType": {
+                "duration_minutes": {
                   "example": "any"
                 },
-                "mileage": {
+                "studio": {
                   "example": "any"
                 },
-                "features": {
+                "description": {
+                  "example": "any"
+                },
+                "film_rating": {
                   "example": "any"
                 }
               }
@@ -498,25 +504,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "name": {
                   "example": "any"
                 },
-                "model": {
-                  "example": "any"
-                },
-                "year": {
-                  "example": "any"
-                },
-                "color": {
-                  "example": "any"
-                },
-                "fuelType": {
-                  "example": "any"
-                },
-                "mileage": {
-                  "example": "any"
-                },
-                "features": {
+                "description": {
                   "example": "any"
                 }
               }
@@ -574,25 +565,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "brand": {
+                "name": {
                   "example": "any"
                 },
-                "model": {
-                  "example": "any"
-                },
-                "year": {
-                  "example": "any"
-                },
-                "color": {
-                  "example": "any"
-                },
-                "fuelType": {
-                  "example": "any"
-                },
-                "mileage": {
-                  "example": "any"
-                },
-                "features": {
+                "description": {
                   "example": "any"
                 }
               }
