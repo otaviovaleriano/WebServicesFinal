@@ -45,8 +45,13 @@ const saveAuthor = (req, res, next) => {
 const saveMovie = (req, res, next) => {
     const validationRule = {
         name: 'required|string',
-        birthdate: 'required|string',
-        nationality: 'required|string',
+        genre: 'required|string',
+        director: 'required|string',
+        release_date: 'required|string',
+        duration_minutes: 'required|integer',
+        studio: 'required|string',
+        description: 'required|string',
+        film_rating: 'required|string',
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
@@ -64,8 +69,7 @@ const saveMovie = (req, res, next) => {
 const saveCategorie = (req, res, next) => {
     const validationRule = {
         name: 'required|string',
-        birthdate: 'required|string',
-        nationality: 'required|string',
+        description: 'required|string',
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
